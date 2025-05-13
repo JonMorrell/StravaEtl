@@ -1,0 +1,27 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Python virtual environment
+venv/
+.env/
+
+# Editor-specific files
+.vscode/
+*.swp
+*.swo
+
+# Dependency directories (adjust as needed)
+__pycache__/
+node_modules/
+
+# env
+.env
+
+.pytest_cache
+
+*.csv
+config.ini
+strava.ipynb
