@@ -57,7 +57,7 @@ def get_columns_dictionary() -> dict:
     return col_dict
 
 def add_to_db(df:pd.DataFrame):
-    #try:
+    try:
         parser = configparser.ConfigParser()
         parser.read("config.ini")
     
@@ -69,5 +69,5 @@ def add_to_db(df:pd.DataFrame):
         engine = create_engine(connection_url)
         df.to_sql('strava_activity', con=engine, if_exists='replace', index=False)
         print(f"success: {df.shape[0]} rows added")
-    #except:
+    except:
         print(f"fail! Something went wrong")
