@@ -3,6 +3,7 @@ import configparser
 import pandas as pd
 
 from sqlalchemy import create_engine
+from sqlalchemy.exc import SQLAlchemyError, OperationalError
 from datetime import datetime
 
 def conn_string() -> str:
@@ -57,7 +58,7 @@ def get_columns_dictionary() -> dict:
     return col_dict
 
 def add_to_db(df:pd.DataFrame):
-    #try:
+    try:
         parser = configparser.ConfigParser()
         parser.read("config.ini")
     
@@ -69,5 +70,7 @@ def add_to_db(df:pd.DataFrame):
         engine = create_engine(connection_url)
         df.to_sql('strava_activity', con=engine, if_exists='replace', index=False)
         print(f"success: {df.shape[0]} rows added")
-    #except:
-        print(f"fail! Something went wrong")
+    except OperationalError as e:
+        raise Exception(f"Could not connect to the database: {e}")
+    except SQLAlchemyError as e:
+        raise Exception(f"SQLAlchemy error while creating engine: {e}")

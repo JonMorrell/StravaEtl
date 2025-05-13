@@ -1,0 +1,28 @@
+CREATE TABLE [dbo].[strava_activity](
+	[activity_id] [bigint] NULL,
+	[name] [varchar](max) NULL,
+	[distance] [float] NULL,
+	[moving_time] [float] NULL,
+	[elapsed_time] [float] NULL,
+	[total_elevation_gain] [float] NULL,
+	[type] [varchar](max) NULL,
+	[workout_type] [varchar](max) NULL,
+	[location_country] [varchar](max) NULL,
+	[achievement_count] [bigint] NULL,
+	[kudos_count] [bigint] NULL,
+	[comment_count] [bigint] NULL,
+	[athlete_count] [bigint] NULL,
+	[photo_count] [bigint] NULL,
+	[average_speed] [float] NULL,
+	[max_speed] [float] NULL,
+	[average_cadence] [float] NULL,
+	[average_temp] [float] NULL,
+	[average_heartrate] [float] NULL,
+	[max_heartrate] [bigint] NULL,
+	[suffer_score] [bigint] NULL,
+	[start_date] [datetime] NULL,
+	[timezone] [varchar](max) NULL,
+	[lat] [float] NULL,
+	[lng] [float] NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
